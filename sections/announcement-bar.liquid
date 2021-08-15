@@ -3,14 +3,15 @@
 {%- for block in section.blocks -%}
   {%- case block.type -%}
     {%- when 'announcement' -%}
-    <div class="announce-bar" background: {{ block.settings.background_color }}; color: {{ block.settings.announcement_text_color }} aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}></div>
+    <div class="announce-bar" style="background: {{ block.settings.background_color }}; color: {{ block.settings.announcement_text_color }} " aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
         {%- if block.settings.heading != blank -%}
           {%- if block.settings.link != blank -%}
-            <a href="{{ block.settings.link }}" >
+            <a href="{{ block.settings.link }}">
           {%- endif -%}
-             
+              
                 {{ block.settings.heading | escape }}
-               
+                
+              
           {%- if block.settings.link != blank -%}
             </a>
           {%- endif -%}
@@ -34,7 +35,6 @@
           "default": "Welcome to our store",
           "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
         },
-        
         {
           "type": "color",
           "id": "background_color",
@@ -46,8 +46,8 @@
           "id": "announcement_text_color",
           "label": "Background",
           "default": "#ffffff"
-        }
-        ,
+        },
+        
         {
           "type": "url",
           "id": "link",
